@@ -62,6 +62,7 @@ function gameloop() {
             }
             break;
         case 'checkPuyoErase':
+            Stage.hideZenkeshi();
             // 消せるかどうか判定する状態
             const eraseInfo = Stage.checkPuyoErase(frame);
             if (eraseInfo) {
@@ -69,7 +70,6 @@ function gameloop() {
                 comboCount++;
                 // スコアを加算する
                 Score.addComboScore(comboCount, eraseInfo.piece, eraseInfo.color);
-                Stage.hideZenkeshi();
                 // ボーナススコアを加算する
                 Score.addScore(Config.zenkeshiBonus);
             } else {
